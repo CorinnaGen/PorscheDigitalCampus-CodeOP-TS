@@ -85,17 +85,18 @@ interface SchoolTodo extends Todo {
   subject: string
   dueDate: Date
 }
-
+//Union
+type CarModel = "Panamera" | "Cayenne" | "Macan"
 type Car = {
   name: string;
-
+  model: CarModel;
   color: string;
   price: number
 }
 
 const myCarName : Car["name"] = "Cayenne"
 console.log(myCarName)
-
+const myCar: Car = { name: "Betty", model:"Patata", color:"black", price:2000000}
 //Example optional property
 const myTodo: Todo = {
   id:2,
