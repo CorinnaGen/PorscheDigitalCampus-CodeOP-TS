@@ -80,7 +80,8 @@ export function TodoList() {
             <span style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
               {todo.text}
             </span>
-            <button onClick={() => removeTodo(todo.id)}>Remove</button>
+            <button className="remove" onClick={() => removeTodo(todo.id)} 
+            >Remove</button>
           </li>
         ))}
       </ul>

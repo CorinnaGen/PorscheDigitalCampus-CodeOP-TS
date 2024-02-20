@@ -1,5 +1,5 @@
 //Built-in
-const myName : string = "Corinna"
+const myName = "Corinna"
 const myAge : number = 33
 const isOK : boolean = false
 //custom types
@@ -16,7 +16,7 @@ type User = {
 }
 
 const mockArray = [{id:'1', displayName: "Corinna", age: "33", role:"admin"}]
-
+//Also functions have types!
 export function getUsers(): (User["displayName"] | undefined)[] {
   const names = mockArray.map(user => user.displayName);
 //   const names: (User["displayName"] | undefined)[] = mockArray.map(user => user.displayName);
@@ -76,4 +76,30 @@ enum Weekday {
 
 //Types vs Interfaces --> react code for more details
 
-//Types inference example --> react code
+interface Todo {
+  id: number;
+  text: string;
+  createdDate?: Date
+}
+interface SchoolTodo extends Todo {
+  subject: string
+  dueDate: Date
+}
+
+type Car = {
+  name: string;
+
+  color: string;
+  price: number
+}
+
+const myCarName : Car["name"] = "Cayenne"
+console.log(myCarName)
+
+//Example optional property
+const myTodo: Todo = {
+  id:2,
+  text: "Do the dishes"
+}
+
+
