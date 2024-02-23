@@ -10,11 +10,12 @@ This workshop organised within the PD Campus Barcelona is meant to be a intro to
 
 ### Content
 
-
-
-
+Overview contains a list of example of the main features of TypeScript
+TodoList and ContentList component contains example of a typed react component
 
 ## What's next
+
+Feel free to fork this repo and continue working on creating your own react page using typescript!
 
 
 
