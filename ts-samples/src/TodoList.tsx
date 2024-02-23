@@ -24,12 +24,12 @@ export function TodoList() {
   //remind shows what happen when deleting type
   const [inputValue, setInputValue] = useState<string>('');
 
-  // Function to handle input change
+
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setInputValue(event.target.value);
   };
 
-  // Function to handle form submission
+  
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     if (inputValue.trim() !== '') {
@@ -43,7 +43,7 @@ export function TodoList() {
     }
   };
 
-  // Function to handle toggling todo completion
+ 
   const toggleTodo = (id: number): void => {
     const updatedTodos = todos.map(todo =>
       todo.id === id ? { ...todo, completed: !todo.completed } : todo
@@ -51,7 +51,6 @@ export function TodoList() {
     setTodos(updatedTodos);
   };
 
-  // Function to handle removing a todo
   const removeTodo = (id: number): void => {
     const updatedTodos = todos.filter(todo => todo.id !== id);
     setTodos(updatedTodos);

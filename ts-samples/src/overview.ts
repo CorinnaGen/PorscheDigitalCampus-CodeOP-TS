@@ -1,4 +1,4 @@
-//Built-in
+//Basic
 const myName = "Corinna"
 const myAge : number = 33
 const isOK : boolean = false
@@ -42,7 +42,6 @@ if (typeof userInput === 'string') {
 }
 
   
-
 //Enums and Tuples
 // Declare a tuple type
 let employee: [string, number];
@@ -96,7 +95,8 @@ type Car = {
 
 const myCarName : Car["name"] = "Cayenne"
 console.log(myCarName)
-const myCar: Car = { name: "Betty", model:"Patata", color:"black", price:2000000}
+const myCar: Car = { name: "Betty", model:"Cayenne", color:"black", price:2000000}
+
 //Example optional property
 const myTodo: Todo = {
   id:2,
