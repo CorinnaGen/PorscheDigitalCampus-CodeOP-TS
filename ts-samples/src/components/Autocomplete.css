@@ -1,0 +1,7 @@
+.suggestions {
+  list-style: none;
+}
+.no-suggestions {
+  color: #f4a700;
+  padding: 0.5rem;
+}
