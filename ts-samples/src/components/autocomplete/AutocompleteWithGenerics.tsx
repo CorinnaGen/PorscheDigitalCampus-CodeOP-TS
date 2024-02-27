@@ -1,11 +1,19 @@
 import React, { useState } from "react";
+import type { CarModel, Weekday } from "../../overview";
 import "./Autocomplete.css";
 
-export const AutocompleteInput = () => {
-  const suggestions = ["Taycan", "Panamera", "Macan", "Cayenne", "911"];
+interface Props<T extends CarModel | Weekday> {
+  suggestions: T[];
+  placeholder: string;
+}
+
+export const AutocompleteInput = <T extends CarModel | Weekday>({
+  suggestions,
+  placeholder,
+}: Props<T>) => {
   const [inputValue, setInputValue] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
-  const [filteredSuggestions, setFilteredSuggestions] = useState<string[]>([]);
+  const [filteredSuggestions, setFilteredSuggestions] = useState<T[]>([]);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const userInput = e.target.value;
@@ -13,7 +21,8 @@ export const AutocompleteInput = () => {
     setFilteredSuggestions(
       suggestions.filter(
         (suggestion) =>
-          suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1
+          suggestion.toString().toLowerCase().indexOf(userInput.toLowerCase()) >
+          -1
       )
     );
     setShowSuggestions(true);
@@ -46,12 +55,12 @@ export const AutocompleteInput = () => {
 
   return (
     <div>
-    <h2>Autocomplete</h2>
+      <h2>Autocomplete With Generics</h2>
       <input
         type="text"
         onChange={onChange}
         value={inputValue}
-        placeholder="Porsche model"
+        placeholder={placeholder}
       />
       {showSuggestions && inputValue && <SuggestionsListComponent />}
     </div>

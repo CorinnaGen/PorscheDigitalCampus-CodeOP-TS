@@ -1,19 +1,19 @@
 import React, { useState } from "react";
-import type { CarModel, Weekday } from "../overview";
+import type { CarModel, Weekday } from "../../overview";
 import "./Autocomplete.css";
 
-interface Props<T extends CarModel | Weekday> {
-  suggestions: T[];
+interface Props {
+  suggestions: (CarModel | Weekday)[];
   placeholder: string;
 }
 
-export const AutocompleteInput = <T extends CarModel | Weekday>({
+export const AutocompleteInput = ({
   suggestions,
   placeholder,
-}: Props<T>) => {
+}: Props) => {
   const [inputValue, setInputValue] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
-  const [filteredSuggestions, setFilteredSuggestions] = useState<T[]>([]);
+  const [filteredSuggestions, setFilteredSuggestions] = useState<(CarModel | Weekday)[]>([]);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const userInput = e.target.value;
@@ -55,7 +55,7 @@ export const AutocompleteInput = <T extends CarModel | Weekday>({
 
   return (
     <div>
-      <h2>Autocomplete With Generics</h2>
+      <h2>Autocomplete With Union Type</h2>
       <input
         type="text"
         onChange={onChange}

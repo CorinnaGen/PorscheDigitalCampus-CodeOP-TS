@@ -1,19 +1,12 @@
 import React, { useState } from "react";
-import type { CarModel, Weekday } from "../overview";
 import "./Autocomplete.css";
+import { CarModel } from "../../overview";
 
-interface Props {
-  suggestions: (CarModel | Weekday)[];
-  placeholder: string;
-}
-
-export const AutocompleteInput = ({
-  suggestions,
-  placeholder,
-}: Props) => {
+export const AutocompleteInput = () => {
+  const suggestions: CarModel[] = ["Taycan", "Panamera", "Macan", "Cayenne", "911"];
   const [inputValue, setInputValue] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
-  const [filteredSuggestions, setFilteredSuggestions] = useState<(CarModel | Weekday)[]>([]);
+  const [filteredSuggestions, setFilteredSuggestions] = useState<string[]>([]);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const userInput = e.target.value;
@@ -21,8 +14,7 @@ export const AutocompleteInput = ({
     setFilteredSuggestions(
       suggestions.filter(
         (suggestion) =>
-          suggestion.toString().toLowerCase().indexOf(userInput.toLowerCase()) >
-          -1
+          suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1
       )
     );
     setShowSuggestions(true);
@@ -55,12 +47,12 @@ export const AutocompleteInput = ({
 
   return (
     <div>
-      <h2>Autocomplete With Union Type</h2>
+    <h2>Autocomplete</h2>
       <input
         type="text"
         onChange={onChange}
         value={inputValue}
-        placeholder={placeholder}
+        placeholder="Porsche model"
       />
       {showSuggestions && inputValue && <SuggestionsListComponent />}
     </div>

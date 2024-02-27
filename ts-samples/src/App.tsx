@@ -1,8 +1,8 @@
 import "./App.css";
 import { TodoList } from "./components/TodoList";
-import { AutocompleteInput } from "./components/Autocomplete";
-import { AutocompleteInput as AutocompleteGenerics } from "./components/AutocompleteWithGenerics";
-import { AutocompleteInput as AutocompleteWithUnionType } from "./components/AutocompleteWithUnionType";
+import { AutocompleteInput } from "./components/autocomplete/Autocomplete";
+import { AutocompleteInput as AutocompleteGenerics } from "./components/autocomplete/AutocompleteWithGenerics";
+import { AutocompleteInput as AutocompleteWithUnionType } from "./components/autocomplete/AutocompleteWithUnionType";
 import { CarModel, Weekday } from "./overview";
 
 const suggestions: CarModel[] = [
@@ -25,15 +25,13 @@ function App() {
       <br />
       <AutocompleteInput />
       <br />
-      <AutocompleteGenerics
-        suggestions={Object.values(Weekday) as Weekday[]}
-        placeholder="Week day"
-      />
-      <br />
       <AutocompleteWithUnionType
         suggestions={allSuggestion}
         placeholder="PorscheModel or Week day"
       />
+      <br />
+      <AutocompleteGenerics suggestions={suggestions} placeholder="Week day" />
+      <br />
     </div>
   );
 }
