@@ -5,17 +5,20 @@ import { AutocompleteInput as AutocompleteGenerics } from "./components/autocomp
 import { AutocompleteInput as AutocompleteWithUnionType } from "./components/autocomplete/AutocompleteWithUnionType";
 import { CarModel, Weekday } from "./overview";
 
-const suggestions: CarModel[] = [
+const cars: CarModel[] = [
   "Taycan",
   "Panamera",
   "Macan",
   "Cayenne",
   "911",
+  "Carrera"
 ];
 
+const weekdays = (Object.values(Weekday) as Weekday[])
+
 const allSuggestion = [
-  ...suggestions,
-  ...(Object.values(Weekday) as Weekday[]),
+  ...cars,
+  ...weekdays,
 ];
 
 function App() {
@@ -26,12 +29,12 @@ function App() {
       <AutocompleteInput />
       <br />
       <AutocompleteWithUnionType
-        suggestions={allSuggestion}
-        placeholder="PorscheModel or Week day"
+        suggestions={cars}
+        placeholder="Porsche Model"
       />
       <br />
-      <AutocompleteGenerics suggestions={suggestions} placeholder="Week day" />
-      <br />
+      <AutocompleteGenerics suggestions={weekdays} placeholder="Week day" />
+  <br />
     </div>
   );
 }

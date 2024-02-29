@@ -84,7 +84,7 @@ interface SchoolTodo extends Todo {
 }
 
 //Union
-export type CarModel = "Panamera" | "Cayenne" | "Macan" | "Taycan" | "911";
+export type CarModel = "Panamera" | "Cayenne" | "Macan" | "Taycan" | "911" | "Carrera";
 type Car = {
   name: string;
   model: CarModel;
